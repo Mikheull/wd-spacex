@@ -30,3 +30,16 @@ export async function getLaunchpads() {
     });
 };
 
+
+export async function getUpcomingLaunch() {
+    return new Promise(async (resolve, reject) => {
+        return axios({
+            url: "https://api.spacexdata.com/v4/launches/next",
+            method: "GET"
+        })
+        .then(res => resolve(res))
+        .catch(err => reject(err.response ? err.response.status : 500));
+    });
+};
+
+
