@@ -6,7 +6,10 @@ export async function getLaunches() {
             url: "https://api.spacexdata.com/v4/launches/query",
             data: {
                 "options": {
-                    "pagination": false
+                    "pagination": false,
+                    "populate": [
+                        "launchpad"
+                    ]
                 }
             },
             method: "POST"
@@ -15,3 +18,15 @@ export async function getLaunches() {
         .catch(err => reject(err.response ? err.response.status : 500));
     });
 };
+
+export async function getLaunchpads() {
+    return new Promise(async (resolve, reject) => {
+        return axios({
+            url: "https://api.spacexdata.com/v4/launchpads",
+            method: "GET"
+        })
+        .then(res => resolve(res))
+        .catch(err => reject(err.response ? err.response.status : 500));
+    });
+};
+

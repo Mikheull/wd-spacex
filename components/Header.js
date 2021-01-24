@@ -10,8 +10,8 @@ class Header extends Component {
 
     render() {
         return (
-            <header>
-				<div className="flex justify-between px-8 py-6">
+            <header className="container mx-auto">
+				<div className="flex justify-between py-6">
 					<a href="#" className="text-lg font-semibold tracking-widest text-white uppercase rounded-lg focus:outline-none focus:shadow-outline">Mika SpaceX</a>
 					<button className="rounded-lg focus:outline-none focus:shadow-outline">
 						<svg fill="#FFF" viewBox="0 0 20 20" className="w-6 h-6">
