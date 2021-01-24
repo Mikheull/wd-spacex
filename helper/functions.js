@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-
-export async function getLaunches(options = {}) {
-    const params = options.params || {};
-
+export async function getLaunches() {
     return new Promise(async (resolve, reject) => {
         return axios({
             url: "https://api.spacexdata.com/v4/launches/query",

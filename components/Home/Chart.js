@@ -47,12 +47,7 @@ class Chart extends Component {
 
 
         return (
-
-            <header>
-                <Doughnut data={data} options={options} width="800" height="200" />
-
-                
-            </header>
+            <Doughnut data={data} options={options} width="800" height="200" />
         )
     }
 }
