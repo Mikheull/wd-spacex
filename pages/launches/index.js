@@ -17,8 +17,9 @@ class Launches extends Component {
       launchpads: [],
       query: {},
       options: {
-        "page": 1,
-        "limit": 9,
+        // "page": 1,
+        // "limit": 9,
+        "pagination": false,
         "populate": [
             "launchpad"
         ]

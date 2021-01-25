@@ -12,13 +12,11 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-
-    }
+    this.state = {}
   }
     
-  componentDidMount() {
-   
+  componentDidMount(){
+    
   }
 
   componentWillUnmount() {
@@ -37,13 +35,11 @@ class Home extends Component {
         </Head>
   
         <Header />
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-          
+        <div>
+          a$
+
           <Chart key="chart-01" />
-
-        </h1>
-
+        </div>
       </div>
     );
   }

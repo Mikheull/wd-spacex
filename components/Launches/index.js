@@ -9,27 +9,42 @@ class LaunchesList extends Component {
         super(props);
 
         this.state = {
-          launches: []
+          launches: [],
+          query: {},
+          options: {}
         }
     }
     
     componentDidMount() {
-        console.log('updated');
         const self = this;
         let launches = getLaunches(this.props.query, this.props.options);
         launches.then(function(result) {
             self.setState({launches: result.data.docs});
         })
+
+        self.setState({query: this.props.query});
+        self.setState({options: this.props.options});
     }
     
     componentDidUpdate(){
-       
+        if (this.props.query !== this.state.query) {
+
+            this.setState({query: this.props.query});
+            this.setState({options: this.props.options});
+
+            const self = this;
+            let launches = getLaunches(this.props.query, this.props.options);
+            launches.then(function(result) {
+                self.setState({launches: result.data.docs});
+            })
+        }
+        
     }
 
     
     render() {
         let launches = this.state.launches.map((data, key) =>{
-            return <Card key={key} data={data} />
+            return <Card key={data.id} data={data} />
         })
 
         return(
