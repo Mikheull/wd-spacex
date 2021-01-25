@@ -14,12 +14,18 @@ class LaunchesList extends Component {
     }
     
     componentDidMount() {
+        console.log('updated');
         const self = this;
-        let launches = getLaunches();
+        let launches = getLaunches(this.props.query, this.props.options);
         launches.then(function(result) {
             self.setState({launches: result.data.docs});
         })
     }
+    
+    componentDidUpdate(){
+       
+    }
+
     
     render() {
         let launches = this.state.launches.map((data, key) =>{

@@ -14,8 +14,18 @@ class Launches extends Component {
     super(props);
 
     this.state = {
-      launchpads: []
+      launchpads: [],
+      query: {},
+      options: {
+        "page": 1,
+        "limit": 9,
+        "populate": [
+            "launchpad"
+        ]
+      },
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
     
   componentDidMount() {
@@ -30,6 +40,22 @@ class Launches extends Component {
 
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+    const mission = data.get('mission');
+    const date = data.get('date');
+    const launchpad = data.get('launchpad');
+    
+    let updt = {};
+
+    if(mission){ Object.assign(updt, { name: { $regex: '.*' + mission + '.*' } }) }
+    if(launchpad){ Object.assign(updt, { launchpad: launchpad }) }
+    if(date){ Object.assign(updt, { date_utc: {"$gte": date+"T00:00:00.000Z", "$lte": date+"T23:59:59.000Z"} }) }
+
+    this.setState({query: updt});
+  }
 
   render() {
     let launchpads = this.state.launchpads.map((data, key) =>{
@@ -66,9 +92,9 @@ class Launches extends Component {
           <div>
             
             <div className="p-10 text-white bg-gray-800 md:w-5/6 mx-auto w-full rounded-md mb-32">  
-              <form className="flex gap-2 items-end justify-between" method="POST">
+              <form className="flex gap-2 items-end justify-between" method="POST" onSubmit={this.handleSubmit}>
                 <div className="flex flex-col">
-                  <label className="leading-loose font-semibold" for="mission">Mission</label>
+                  <label className="leading-loose font-semibold" htmlFor="mission">Mission</label>
                   <div className="relative focus-within:text-gray-600 text-gray-400">
                     <input type="text" className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 md:w-auto w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="FalconSat" id="mission" name="mission"/>
                     <div className="absolute left-3 top-2"><img src="./images/icons/compass.svg"/></div>
@@ -76,17 +102,17 @@ class Launches extends Component {
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="leading-loose font-semibold" for="launchpad">Launchpad</label>
+                  <label className="leading-loose font-semibold" htmlFor="launchpad">Launchpad</label>
                   <div className="relative focus-within:text-gray-600 text-gray-400">
                     <select className="appearance-none pr-4 py-2 border focus:ring-gray-500 focus:border-gray-900 md:w-auto w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" id="launchpad" name="launchpad">
-                      <option>All</option>
+                      <option value="">All</option>
                       {launchpads}
                     </select> 
                   </div>
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="leading-loose font-semibold" for="date">Date</label>
+                  <label className="leading-loose font-semibold" htmlFor="date">Date</label>
                   <div className="relative focus-within:text-gray-600 text-gray-400">
                     <input type="date" className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 md:w-auto w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" id="date" name="date"/>
                     <div className="absolute left-3 top-2"><img src="./images/icons/calendar.svg"/></div>
@@ -97,7 +123,7 @@ class Launches extends Component {
               </form>
             </div>
             
-            <LaunchesList />
+            <LaunchesList query={this.state.query} options={this.state.options} />
           </div>
         </div>
         

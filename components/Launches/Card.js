@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-import {getLaunches} from '../../helper/functions'
 import Link from 'next/link';
 
 
