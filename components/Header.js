@@ -48,16 +48,16 @@ class Header extends Component {
                 <div className={(this.state.visiblity) ? 'h-screen w-full fixed top-0 left-0 bg-black' : 'hidden'} id="side_header">
                     <ul className="flex flex-col py-6 h-screen items-center justify-center gap-10">
                         <li className="text-white">
-                            <Link href="./"><a className="text-3xl font-bold uppercase text-white hover:text-red-400 mb-10">Home</a></Link>
+                            <Link href="/"><a className="text-3xl font-bold uppercase text-white hover:text-red-400 mb-10">Home</a></Link>
                         </li>
                         <li className="text-white">
-                            <Link href="./launches"><a className="text-3xl font-bold uppercase text-white hover:text-red-400 mb-10"><span className="font-black mr-4">01/</span> Launches</a></Link>
+                            <Link href="/launches"><a className="text-3xl font-bold uppercase text-white hover:text-red-400 mb-10"><span className="font-black mr-4">01/</span> Launches</a></Link>
                         </li>
                         <li className="text-white">
-                            <Link href="./starlink"><a className="text-3xl font-bold uppercase text-white hover:text-red-400 mb-10"><span className="font-black mr-4">02/</span> Starlink</a></Link>
+                            <Link href="/starlink"><a className="text-3xl font-bold uppercase text-white hover:text-red-400 mb-10"><span className="font-black mr-4">02/</span> Starlink</a></Link>
                         </li>
                         <li className="text-white">
-                            <Link href="./next"><a className="text-3xl font-bold uppercase text-white hover:text-red-400 mb-10"><span className="font-black mr-4">03/</span> Upcoming</a></Link>
+                            <Link href="/next"><a className="text-3xl font-bold uppercase text-white hover:text-red-400 mb-10"><span className="font-black mr-4">03/</span> Upcoming</a></Link>
                         </li>
                     </ul>
                 </div>

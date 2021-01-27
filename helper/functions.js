@@ -64,3 +64,16 @@ export async function getUpcomingLaunch() {
 };
 
 
+export async function getCrew() {
+    return new Promise(async (resolve, reject) => {
+        return axios({
+            url: "https://api.spacexdata.com/v4/crew",
+            method: "GET"
+        })
+        .then(res => resolve(res))
+        .catch(err => reject(err.response ? err.response.status : 500));
+    });
+};
+
+
+

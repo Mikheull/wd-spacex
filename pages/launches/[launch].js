@@ -57,7 +57,7 @@ class Launch extends Component {
         
 
         const settings = {
-            dots: true,
+            dots: false,
             infinite: true,
             speed: 500,
             slidesToShow: 1,
@@ -66,7 +66,6 @@ class Launch extends Component {
 
         return (
             <div>
-      
                 <Head>
                     <title>Space X</title>
                     <link rel="icon" href="/favicon.ico" />
@@ -87,48 +86,88 @@ class Launch extends Component {
                     </div>
 
                     {/* Desc */}
-                    <div className="">
-                        <h2>{this.state.launch.name}</h2>
-                        
-                        {
-                            (this.state.launch.success) 
-                            ? 
-                                <div class="relative flex flex-col sm:flex-row sm:items-center bg-gray-800 shadow rounded-md py-5 pl-6 pr-8 sm:pr-6">
-                                    <div class="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
-                                        <div class="text-green-500">
-                                            <svg class="w-6 sm:w-5 h-6 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div className="container mx-auto px-4">
+                        <div className="flex md:flex-row flex-col">
+                            <div className="md:w-2/3 w-full">
+                                <div className="flex items-center">
+                                    <p className="text-5xl font-medium text-red-400 mr-2">#{this.state.launch.flight_number}</p>
+                                    <h2 className="text-5xl font-semibold text-white">{this.state.launch.name}</h2>
+                                </div>
+                                <div className="my-10">
+                                    {
+                                        (this.state.launch.success) 
+                                        ? 
+                                            <div className="relative flex flex-col sm:flex-row sm:items-center bg-gray-800 shadow rounded-md py-5 pl-6 pr-8 sm:pr-6">
+                                                <div className="flex flex-row items-center w-full sm:w-auto pb-4 sm:pb-0">
+                                                    <div className="text-green-500">
+                                                        <svg className="w-6 sm:w-5 h-6 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                                    </div>
+                                                    <div className="text-sm font-medium ml-3">Success Launch .</div>
+                                                </div>
+                                                <div className="text-sm tracking-wide text-gray-500 mt-4 sm:mt-0 sm:ml-4">The mission was carried out successfully</div>
+                                            </div>
+                                        : 
+                                        <div className="relative flex flex-col sm:flex-row sm:items-center bg-gray-800 shadow rounded-md py-5 pl-6 pr-8 sm:pr-6">
+                                            <div className="flex flex-row items-center w-full sm:w-auto pb-4 sm:pb-0">
+                                                <div className="text-green-500">
+                                                    <svg className="w-6 sm:w-5 h-6 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                                </div>
+                                                <div className="text-sm font-medium ml-3">Failed Launch .</div>
+                                            </div>
+                                            <div className="text-sm tracking-wide text-gray-500 mt-4 sm:mt-0 sm:ml-4">The mission was a failure</div>
                                         </div>
-                                        <div class="text-sm font-medium ml-3">Success Launch .</div>
-                                    </div>
-                                    <div class="text-sm tracking-wide text-gray-500 mt-4 sm:mt-0 sm:ml-4">The mission was carried out successfully</div>
+                                    }
                                 </div>
-                            : 
-                            <div class="relative flex flex-col sm:flex-row sm:items-center bg-gray-800 shadow rounded-md py-5 pl-6 pr-8 sm:pr-6">
-                                <div class="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
-                                    <div class="text-green-500">
-                                        <svg class="w-6 sm:w-5 h-6 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+
+                                <div className="relative flex flex-col sm:flex-row sm:items-center bg-gray-800 shadow rounded-md py-5 pl-6 pr-8 sm:pr-6 mb-10">
+                                    <div className="flex flex-row items-center w-full sm:w-auto pb-4 sm:pb-0">
+                                        <div className="text-green-500">🚀</div>
+                                        <div className="text-sm font-medium ml-3">Launch Site :</div>
                                     </div>
-                                    <div class="text-sm font-medium ml-3">Failed Launch .</div>
+                                    <div className="text-sm tracking-wide text-gray-500 mt-4 sm:mt-0 sm:ml-4">{this.state.launchpad.full_name}</div>
                                 </div>
-                                <div class="text-sm tracking-wide text-gray-500 mt-4 sm:mt-0 sm:ml-4">The mission was a failure</div>
+
+                                <p class="text-2xl text-gray-400 italic w-full">{this.state.launch.details}</p>
+
                             </div>
-                        }
-                        
-                        
-                        <img src={(this.state.links.patch) ? this.state.links.patch.small : './images/default/patch.svg'} alt="Mission patch" className="w-24 object-cover"/>
-                        <p>Desc: {this.state.launch.details}</p>
-                        <p>Site: {this.state.launchpad.full_name}</p>
+
+                            <div className="md:w-1/3 w-full flex justify-center items-center">
+                                <div>
+                                    <img src={(this.state.links.patch) ? this.state.links.patch.small : './images/default/patch.svg'} alt="Mission patch" className="w-32 object-cover"/>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     {/* Crew */}
-                    <div className="lg:w-1/4 w-2/3 mx-auto">
-                        <Slider {...settings}>
-                            {crew}
-                        </Slider>
+                    <div className="container mx-auto px-4 mt-24">
+                        <h2 className="text-5xl font-semibold text-white">Our crew</h2>
+                        {
+                            (crew.length !== 0) 
+                            ? 
+                                <div className="lg:w-1/4 w-2/3 mx-auto mt-10">
+                                    <Slider {...settings}>
+                                        {crew}
+                                    </Slider>
+                                </div>
+                            : 
+                                <p class="text-2xl text-gray-400 italic w-full mt-10">There is no crew for this mission</p>
+                        }
                     </div>
 
                     {/* Video */}
-                    <Video data={this.state.links} />
+                    <div className="container mx-auto px-4 mt-24">
+                        <h2 className="text-5xl font-semibold text-white">Video</h2>
+                        <div className="w-2/3 mx-auto mt-10 cursor-pointer">
+                            <Video data={this.state.links} />
+                        </div>
+                    </div>
+
+                    {/* Rocket */}
+
+                    {/* Gallery */}
+                    
                 </div>
             </div>
         )
