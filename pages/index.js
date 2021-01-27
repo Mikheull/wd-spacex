@@ -25,7 +25,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="container mx-auto">
+      <div className="relative">
       
         <Head>
           <title>Space X</title>
@@ -34,11 +34,15 @@ class Home extends Component {
           <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" /> 
         </Head>
   
-        <Header />
-        <div>
-          a$
+        <div className="container mx-auto">
+          <Header />
 
-          <Chart key="chart-01" />
+          <div>
+            <div className="h-screen flex items-center justify-center">
+              <h1 className="text-stroked-white text-9xl">Space X</h1>
+            </div>
+            <Chart key="chart-01" />
+          </div>
         </div>
       </div>
     );

@@ -6,3 +6,11 @@
 body {
   background: #0d1622;
 }
+
+.text-stroked-white {
+  font-weight: 900;
+  text-decoration: none;
+  color: transparent;
+  -webkit-text-stroke: 3px #ffffff;
+  user-select: none;
+}

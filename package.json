@@ -21,7 +21,9 @@
     "querystring": "^0.2.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-slick": "^0.28.0",
     "scrollmagic": "^2.0.8",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
   }
 }

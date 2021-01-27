@@ -25,7 +25,7 @@ class Card extends Component {
         return (
             <div className="mb-12">
                 <div className="flex-none">
-                    <Link href={"launches/"+this.props.data.name}>
+                    <Link href={"launches/"+this.props.data.id}>
                         <a>
                             {banner}
                         </a>
@@ -35,14 +35,14 @@ class Card extends Component {
                 
                 <div className="flex items-start mt-4">
                     <div className="">
-                        <Link href={"launches/"+this.props.data.name}>
+                        <Link href={"launches/"+this.props.data.id}>
                             <a>
                                 <img src={(this.props.data.links.patch.small) ? this.props.data.links.patch.small : './images/default/patch.svg'} alt="Mission patch" className="w-24 object-cover"/>
                             </a>
                         </Link>
                     </div>
                     <div className="flex flex-col ml-4">
-                        <Link href={"launches/"+this.props.data.name}><a className="font-bold text-white hover:text-red-400">{this.props.data.name}</a></Link>
+                        <Link href={"launches/"+this.props.data.id}><a className="font-bold text-white hover:text-red-400">{this.props.data.name}</a></Link>
                         <a className="text-gray-400 hover:text-red-400">{this.props.data.launchpad.full_name}</a>
                     </div>
                 </div>

@@ -15,6 +15,31 @@ export async function getLaunches(query = {}, options = {}) {
     });
 };
 
+export async function getLaunch(id) {
+    return new Promise(async (resolve, reject) => {
+        return axios({
+            url: "https://api.spacexdata.com/v4/launches/query",
+            data: {
+                "query": {
+                    "_id": id
+                },
+                "options": {
+                    "pagination": false,
+                    "populate": [
+                        "launchpad",
+                        "rocket",
+                        "payloads",
+                        "crew"
+                    ]
+                }
+            },
+            method: "POST"
+        })
+        .then(res => resolve(res))
+        .catch(err => reject(err.response ? err.response.status : 500));
+    });
+};
+
 export async function getLaunchpads() {
     return new Promise(async (resolve, reject) => {
         return axios({

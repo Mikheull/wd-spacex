@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { TweenMax, TimelineMax, Power2} from "gsap";
+import { TweenMax, TimelineMax} from "gsap";
 
 // Components
 import Link from 'next/link'
