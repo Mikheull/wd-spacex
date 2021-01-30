@@ -1,10 +1,10 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Mikheull/wd-spacex/dev/public/images/Weekdev_banner%402x.png" />
+    <img src="https://raw.githubusercontent.com/Mikheull/wd-spacex/master/public/images/Weekdev_banner%402x.png" />
     <h2 align="center">Weekdev #2 | Visualize SpaceX launches</h2>
 </p> 
 <p align="center">By Mikhael Bailly</p>
 
-[![Build Status](https://travis-ci.org/Mikheull/wd-spacex.svg?branch=dev)](https://travis-ci.org/Mikheull/wd-spacex)
+[![Build Status](https://travis-ci.org/Mikheull/wd-spacex.svg?branch=master)](https://travis-ci.org/Mikheull/wd-spacex)
 ![GitHub](https://img.shields.io/github/license/Mikheull/wd-spacex)
 
 ## 🚀 Intro
@@ -44,7 +44,9 @@ Main tasks :
 - NextJS
 - SpaceX API
 - MagicScroll
+- Tweenmax
 - Tailwindcss
+- Slick
 
 ## Installation
 
@@ -71,4 +73,4 @@ npm run dev
 I explain in more detail the development of this app in the wiki [here](https://github.com/Mikheull/wd-spacex/wiki)<br>
 
 Here is the result after 1 week :<br>
-SOON
+<img src="https://raw.githubusercontent.com/Mikheull/wd-spacex/master/public/images/spacex-result.gif">
