@@ -3,14 +3,14 @@
 @import "~tailwindcss/utilities";
 
 
-$primary-color: #482ff7;
-$secondary-color: #fc5c9c;
-
-
 body {
-  color: $primary-color;
+  background: #0d1622;
 }
 
-h1 {
-    color: $secondary-color;
+.text-stroked-white {
+  font-weight: 900;
+  text-decoration: none;
+  color: transparent;
+  -webkit-text-stroke: 3px #ffffff;
+  user-select: none;
 }
