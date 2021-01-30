@@ -37,7 +37,8 @@ class Header extends Component {
         return (
             <header className="container mx-auto">
 				<div className="flex justify-between py-6">
-					<a href="#" className="text-lg font-semibold tracking-widest text-white uppercase rounded-lg focus:outline-none focus:shadow-outline z-10">Mika SpaceX</a>
+                    <Link href="/"><a className="text-lg font-semibold tracking-widest text-white uppercase rounded-lg focus:outline-none focus:shadow-outline z-10">Mika SpaceX</a></Link>
+					
 					<button className="rounded-lg focus:outline-none focus:shadow-outline z-10" data-visible={this.state.visiblity} onClick={this.handleMenu}>
 						<svg fill="#FFF" viewBox="0 0 20 20" className="w-6 h-6">
 							<path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clipRule="evenodd"></path>
